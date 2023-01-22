@@ -45,14 +45,14 @@ const contactsSlice = createSlice({
 
   extraReducers: builder =>
     builder
-      // fulfilled
+
       .addCase(fetchContacts.fulfilled, fetchContactsSuccesReducer)
       .addCase(addContact.fulfilled, addContactsSuccesReducer)
       .addCase(deleteContact.fulfilled, deleteContactsSuccesReducer)
       .addMatcher(isAnyOf(...getActionsWithType('fulfilled')), anySuccesReducer)
-      // pending
+
       .addMatcher(isAnyOf(...getActionsWithType('pending')), anyPendingReducer)
-      // rejected
+
       .addMatcher(
         isAnyOf(...getActionsWithType('rejected')),
         anyRejectedReducer
